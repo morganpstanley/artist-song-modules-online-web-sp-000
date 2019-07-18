@@ -2,23 +2,22 @@ require 'pry'
 
 class Artist
   extend Memorable
-  extend Findable
   attr_accessor :name
   attr_reader :songs
 
-  @@all = []
+  @@artists = []
 
   def initialize
-    @@all << self
+    @@artists << self
     @songs = []
   end
 
-#  def self.find_by_name(name)
-#    @@all.detect{|a| a.name == name}
-#  end
+  def self.find_by_name(name)
+    @@artists.detect{|a| a.name == name}
+  end
 
   def self.all
-    @@all
+    @@artists
   end
 
   def add_song(song)
